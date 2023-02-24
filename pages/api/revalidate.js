@@ -7,10 +7,7 @@ export default async function handler(req, res) {
   try {
     // Revalidate the hompage to get new date/time value
     await res.revalidate('/');
-
-    // After successful revalidation,
-    // redirect to the updated homepage
-    res.redirect("/");
+    return res.json({ success: true });
     
   } catch (err) {
     // If there was an error, Next.js will continue
